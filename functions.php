@@ -92,10 +92,12 @@ add_action( 'widgets_init', '_roos_widgets_init' );
  * Enqueue scripts and styles.
  */
 function _roos_scripts() {
+
+	wp_enqueue_style( '_roos-bootstrap', get_stylesheet_directory_uri() . '/css/bootsrap.css', array(), '3.2.0' );
 	wp_enqueue_style( '_roos-style', get_stylesheet_uri() );
 
+	wp_enqueue_script( '_roos-bootstrap-js', get_template_directory_uri() . '/js/bootstrap.js', array('jquery'), '3.2.0', true );
 	wp_enqueue_script( '_roos-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
-
 	wp_enqueue_script( '_roos-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
